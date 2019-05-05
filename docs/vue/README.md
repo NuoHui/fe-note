@@ -11,3 +11,7 @@
 - [Vue源码: 关于vm.$watch()内部原理](https://github.com/NuoHui/fe-note/blob/master/docs/vue/Vue%E6%BA%90%E7%A0%81:%20%E5%85%B3%E4%BA%8Evm.%24watch%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86.md)
 
 - [Vue源码: vm.$mount()内部原理](https://github.com/NuoHui/fe-note/blob/master/docs/vue/Vue%E6%BA%90%E7%A0%81:%20vm.%24mount%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86.md)
+
+- [Vue源码: 事件相关的实例方法](https://github.com/NuoHui/fe-note/blob/master/docs/vue/Vue%E6%BA%90%E7%A0%81:%20%E4%BA%8B%E4%BB%B6%E7%9B%B8%E5%85%B3%E7%9A%84%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95.md)
+
+- [Vue源码: 关于对Array的数据侦听](https://github.com/NuoHui/fe-note/blob/master/docs/vue/Vue%E6%BA%90%E7%A0%81:%20%E5%85%B3%E4%BA%8E%E5%AF%B9Array%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BE%A6%E5%90%AC.md)
