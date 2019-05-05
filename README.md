@@ -122,6 +122,7 @@
 
 ## Hybrid
 - WebView和原生是如何通信
+- [hybrid架构设计](https://github.com/NuoHui/fe-note/blob/master/docs/hybrid/hybrid%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1.md)
 
 
 ## 安全
