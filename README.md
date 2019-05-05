@@ -14,7 +14,7 @@
 
 ## JS
 
-- 如何解决跨域的问题
+- [如何解决跨域的问题](https://github.com/NuoHui/fe-note/blob/master/docs/javascript/%E5%89%8D%E7%AB%AF%E8%B7%A8%E5%9F%9F.md)
 - 文件上传如何做断点续传
 - 表单可以跨域吗
 - promise、async有什么区别
