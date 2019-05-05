@@ -70,6 +70,8 @@
 - 生命周期
 - 数据响应实现方式
 - Vue缺点, 或者遇到的问题, 如何解决
+- [Vue最佳实践](https://github.com/NuoHui/fe-note/blob/master/docs/vue/Vue%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5.md)
+
 
 ## 打包工具
 
