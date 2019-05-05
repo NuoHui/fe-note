@@ -8,6 +8,6 @@
 
 - [Vue源码: vm.$set()原理分析](https://github.com/NuoHui/fe-note/blob/master/docs/vue/Vue%E6%BA%90%E7%A0%81:%20vm.%24set%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90.md)
 
-- [Vue源码: 关于vm.$watch()内部原理](https://github.com/NuoHui/fe-note/blob/master/docs/vue/Vue%E6%BA%90%E7%A0%81:%20%E5%85%B3%E4%BA%8Evm.%24watch()%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86.md)
+- [Vue源码: 关于vm.$watch()内部原理](https://github.com/NuoHui/fe-note/blob/master/docs/vue/Vue%E6%BA%90%E7%A0%81:%20%E5%85%B3%E4%BA%8Evm.%24watch%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86.md)
 
 - [Vue源码: vm.$mount()内部原理](https://github.com/NuoHui/fe-note/blob/master/docs/vue/Vue%E6%BA%90%E7%A0%81:%20vm.%24mount%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86.md)
