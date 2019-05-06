@@ -23,7 +23,7 @@
 - 介绍Promise，异常捕获
 - 浏览器事件流向
 - 介绍事件代理以及优缺点
-- 介绍this各种使用情况
+- [this关键字各种使用情况](https://github.com/NuoHui/fe-note/blob/master/docs/javascript/this%E5%85%B3%E9%94%AE%E5%AD%97%E5%90%84%E7%A7%8D%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5.md)
 - JS异步解决方案的发展历程以及优缺点
 - 对async、await的理解，内部原理
 - bind、call、apply的区别
