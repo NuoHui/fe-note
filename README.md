@@ -18,7 +18,7 @@
 - 文件上传如何做断点续传
 - 表单可以跨域吗
 - promise、async有什么区别
-- 防抖/节流
+- [节流与防抖](https://github.com/NuoHui/fe-note/blob/master/docs/javascript/%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81.md)
 - 介绍service worker
 - 介绍Promise，异常捕获
 - 浏览器事件流向
@@ -33,7 +33,6 @@
 - Async里面有多个await请求，可以怎么优化（请求是否有依赖）
 - Promise和Async处理失败的时候有什么区别
 - 页面上生成一万个button，并且绑定事件，如何做（JS原生操作DOM）
-- new是怎么实现的
 - formData和原生的ajax有什么区别
 - 介绍下表单提交，和formData有什么关系
 - 内存泄露, JS垃圾回收机制
