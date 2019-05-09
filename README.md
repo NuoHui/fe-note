@@ -94,7 +94,7 @@
 - [从输入URL到页面加载全过程](https://github.com/NuoHui/fe-note/blob/master/docs/tcpIp/network/%E7%BD%91%E7%BB%9C%E6%98%AF%E5%A6%82%E4%BD%95%E9%93%BE%E6%8E%A5%E7%9A%84.md)
 
 - tcp3次握手
-- http缓存控制
+- [HTTP缓存控制](https://github.com/NuoHui/fe-note/blob/master/docs/tcpIp/HTTP%E7%BC%93%E5%AD%98.md)
 - 介绍下HTTP状态码
 - 介绍HTTPS, HTTPS怎么建立安全通道
 - 网络的五层模型
