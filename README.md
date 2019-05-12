@@ -105,6 +105,9 @@
 
 ## 数据结构
 
+- [初识数据结构](https://github.com/NuoHui/fe-note/blob/master/docs/data-structure/%E5%88%9D%E8%AF%86%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md)
+
+
 ## 算法
 - 介绍冒泡排序，选择排序，冒泡排序如何优化
 - 如何判断链表是否有环
