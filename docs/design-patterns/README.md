@@ -1,0 +1,1 @@
+- [单例模式](https://github.com/NuoHui/fe-note/blob/master/docs/design-patterns/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F.md)

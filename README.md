@@ -127,7 +127,8 @@
 - 介绍观察者模式
 - 介绍中介者模式
 - 观察者和订阅-发布的区别，各自用在哪里
-- 单例模式
+- [单例模式](https://github.com/NuoHui/fe-note/blob/master/docs/design-patterns/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F.md)
+
 - 工厂模式
 
 ## Hybrid
