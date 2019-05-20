@@ -2,6 +2,34 @@
 
 关于vm.$set()用法可以看[官网](https://cn.vuejs.org/v2/api/#vm-set),这里就不赘述了。
 
+Vue官网有这么一段
+
+```
+由于 JavaScript 的限制，Vue 无法检测到以下数组变动：
+
+当你使用索引直接设置一项时，例如 vm.items[indexOfItem] = newValue
+当你修改数组长度时，例如 vm.items.length = newLength
+```
+
+可能有人会问为什么Vue不去劫持数组索引或者length属性, 而要选择一个hack方案，我觉得理由如下(欢迎斧正):
+
+```
+const a = [1,2,3]
+console.log(Object.getOwnPropertyDescriptor(a, 'length'))
+// { configurable: false, enumerable: false, value: 3, writable: true }
+我们都知道Vue是通过Object.defineProperty()来劫持数据的get/set.
+而数组的length属性的可枚举性与可配置性不支持修改。
+```
+```
+至于索引:
+const a = [1,2,3]
+console.log(Object.getOwnPropertyDescriptor(a, '0'))
+//
+{configurable: true,enumerable: true,value: 1,writable: true}
+索引是可以劫持get/set的, 但是如果监听索引的话, 如果你push一个元素进来, 那个元素的索引就没有被劫持, 那么就不会是响应式的, 另外我们对数组多半是遍历, 劫持索引的get, 性能不好
+```
+
+
 ### vm.$set()解决了什么问题? 避免滥用
 
 在Vue.js里面只有data中已经存在的属性才会被Observe为响应式数据, 如果你是新增的属性是不会成为响应式数据, 因此Vue提供了一个api(vm.$set)来解决这个问题。
