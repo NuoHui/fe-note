@@ -1,4 +1,140 @@
-## $mount函数执行位置
+## 使用场景
+
+我们在写 Vue.js 时，不论是用 CDN 的方式还是基于Webpack的SPA，都会有一个根节点，并且创建一个根实例，比如：
+
+- CDN
+
+```
+<body>
+  <div id="app"></div>
+</body>
+<script>
+  const app = new Vue({
+    el: '#app'
+  });
+</script>
+
+```
+
+- Webpack一般在入口文件 main.js 里创建一个实例：
+
+```
+import Vue from 'vue';
+import App from './app.vue';
+
+new Vue({
+  el: '#app',
+  render: h => h(App)
+});
+
+```
+
+基于Webpack的SPA，它的 html 里一般都只有一个根节点 `<div id="app"></div>`，其余都是通过 JavaScript 完成，也就是许多的 Vue.js 组件（每个页面也是一个组件）。
+
+有了初始化的实例，之后所有的页面，都由 vue-router 帮我们管理，组件也都是用 `import` 导入后局部注册（也有在 main.js 全局注册的），不管哪种方式，组件（或页面）的创建过程我们是无需关心的，只是写好 `.vue` 文件并导入即可。这样的组件使用方式，有几个特点：
+
+1.  所有的内容，都是在 `#app` 节点内渲染的；
+2.  组件的模板，是事先定义好的；
+3.  由于组件的特性，注册的组件只能在当前位置渲染。
+
+比如你要使用一个组件 `<i-date-picker>`，渲染时，这个自定义标签就会被替换为组件的内容，而且在哪写的自定义标签，就在哪里被替换。换句话说，常规的组件使用方式，只能在规定的地方渲染组件，这在一些特殊场景下就比较局限了，例如：
+
+1.  组件的模板是通过调用接口从服务端获取的，需要动态渲染组件；
+2.  实现类似原生 `window.alert()` 的提示框组件，它的位置是在 `<body>` 下，而非 `<div id="app">`，并且不会通过常规的组件自定义标签的形式使用，而是像 JS 调用函数一样使用。
+
+一般来说，在我们访问页面时，组件就已经渲染就位了，对于场景 1，组件的渲染是异步的，甚至预先不知道模板是什么。对于场景 2，其实并不陌生，在 jQuery 时代，通过操作 DOM，很容易就能实现，你可以沿用这种思路，只是这种做法不那么 Vue，既然使用 Vue.js 了，就应该用 Vue 的思路来解决问题。对于这两种场景，Vue.extend 和 vm.$mount 语法就派上用场了。
+
+
+## 方法
+
+上文我们说到，创建一个 Vue 实例时，都会有一个选项 `el`，来指定实例的根节点，如果不写 `el` 选项，那组件就处于未挂载状态。`Vue.extend` 的作用，就是基于 Vue 构造器，创建一个“子类”，它的参数跟 `new Vue` 的基本一样，但 `data` 要跟组件一样，是个函数，再配合 `$mount` ，就可以让组件渲染，并且挂载到任意指定的节点上，比如 body。
+
+```
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vue Demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <script>
+      // mock从后台获取template
+      const getTemplate = () => {
+        return '<div>{{msg}}</div>'
+      }
+      // 创建一个构造器
+      const AlertComponent = Vue.extend({
+        template: getTemplate(),
+        data () {
+          return {
+            msg: 'hello vue'
+          }
+        }
+      })
+      const alertComponent = new AlertComponent().$mount();
+      document.body.appendChild(alertComponent.$el)
+    </script>
+  </body>
+</html>
+
+```
+
+当然也可以直接手动就挂载
+
+```
+// 手动直接挂载
+new AlertComponent().$mount('#app')
+new AlertComponent({ el: '#app' });
+```
+
+除了使用extend方法外还可以使用render函数创建Vue实例。
+
+```
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vue Demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <script>
+      const props = {
+        msg: 'hello vue'
+      }
+      // 创建一个构造器
+      const instance = new Vue({
+        render (h) {
+          return h('div', {
+            attrs: {
+              class: 'alert'
+            },
+            domProps: {
+              innerHTML: props.msg
+            },
+            props: props
+          })
+        }
+      })
+      const alertComponent = instance.$mount();
+      document.body.appendChild(alertComponent.$el)
+    </script>
+  </body>
+</html>
+
+```
+
+需要注意的是，我们是用 `$mount` 手动渲染的组件，如果要销毁，也要用 `$destroy` 来手动销毁实例，必要时，也可以用 `removeChild` 把节点从 DOM 中移除。
+
+
+## $mount源码分析
+
+### $mount函数执行位置
 
 
 ![new Vue()](https://user-gold-cdn.xitu.io/2019/3/10/169684ecc93f837e?w=2092&h=1196&f=jpeg&s=927379)
@@ -8,9 +144,9 @@ _init这个私有方法是在执行initMixin时候绑定到Vue原型上的。
 
 ![mount](https://user-gold-cdn.xitu.io/2019/3/10/1696850a6f0dad6d?w=2110&h=1118&f=jpeg&s=958661)
 
-## $mount函数是如如何把组件挂在到指定元素
+### $mount函数是如如何把组件挂在到指定元素
 
-### $mount函数定义位置
+#### $mount函数定义位置
 
 $mount函数定义位置有两个:
 
@@ -189,7 +325,7 @@ function getOuterHTML (el: Element): string {
 
 
 
-## mountComponent方法: 真正执行绑定组件
+### mountComponent方法: 真正执行绑定组件
 
 mountComponent函数中是出现在src/core/instance/lifecycle.js。
 
