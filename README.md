@@ -3,15 +3,6 @@
 世界很大, 多踏出一步, 就进步一步。✊!!欢迎技术交流。
 
 
-## 大前端进阶知识点
-
-我会慢慢补充知识点, 也欢迎大家主动提pr。
-
-
-## 目前知识点如下
-
-答案我会补充在docs对应分类文件夹下。
-
 ## JS
 
 - [如何解决跨域的问题](https://github.com/NuoHui/fe-note/blob/master/docs/javascript/%E5%89%8D%E7%AB%AF%E8%B7%A8%E5%9F%9F.md)
