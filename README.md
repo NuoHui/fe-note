@@ -122,6 +122,11 @@
 - 观察者和订阅-发布的区别，各自用在哪里
 - [单例模式](https://github.com/NuoHui/fe-note/blob/master/docs/design-patterns/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F.md)
 
+## 前端工程化
+
+- [如何保证前端项目代码质量](https://github.com/NuoHui/fe-note/blob/master/docs/fe-engineering/code-quality.md)
+
+
 - 工厂模式
 
 ## Hybrid
