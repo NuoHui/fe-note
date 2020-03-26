@@ -24,17 +24,22 @@ man 7 man # 查看man命名的第7章节内容
 
 shell(命令解释器)自带的命名叫做内部命令，其他的是外部命令。
 
-- 内部命令我们使用help帮助
-
-- 外部命令使用help帮助
-
 ```shell
-help cd
 
-ls --help
+help cd # 内部命令我们使用help帮助
+
+ls --help # 外部命令使用help帮助
 ```
 
 
 
+
+我们使用type可以区分命名是属于外部命名还是内部命令。
+
+```shell
+
+type cd # cd is a shell builtin
+
+```
 
 
